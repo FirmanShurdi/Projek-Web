@@ -46,7 +46,7 @@ router.get('/edit/:id', function(req, res, next){
             req.flash('error', 'Data tidak ditemukan');
             res.redirect('/mahasiswa');
         } else {
-            res.render('mahasiswa/edit', rows[0]);
+            res.render('mahasiswa/edit', { mahasiswa: rows[0] }); // ✅ Kirim sebagai objek mahasiswa
         }
     });
 });
