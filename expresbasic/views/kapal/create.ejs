@@ -1,0 +1,59 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <h2 class="my-4">Tambah Kapal Baru</h2>
+    
+    <form action="/kapal/store" method="POST">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Nama Kapal</label>
+                <input type="text" class="form-control" name="nama_kapal" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Pemilik</label>
+                <input type="text" class="form-control" name="nama_pemilik" list="pemilikList" required>
+                <datalist id="pemilikList">
+                    <% dropdownData.filter(item => item.nama_pemilik).forEach(function(item) { %>
+                        <option value="<%= item.nama_pemilik %>">
+                    <% }); %>
+                </datalist>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">DPI</label>
+                <input type="text" class="form-control" name="nama_dpi" list="dpiList" required>
+                <datalist id="dpiList">
+                    <% dropdownData.filter(item => item.nama_dpi).forEach(function(item) { %>
+                        <option value="<%= item.nama_dpi %>">
+                    <% }); %>
+                </datalist>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label class="form-label">Alat Tangkap</label>
+                <input type="text" class="form-control" name="nama_alat_tangkap" list="alatTangkapList" required>
+                <datalist id="alatTangkapList">
+                    <% dropdownData.filter(item => item.nama_alat_tangkap).forEach(function(item) { %>
+                        <option value="<%= item.nama_alat_tangkap %>">
+                    <% }); %>
+                </datalist>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="/kapal" class="btn btn-secondary ms-2">Kembali</a>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

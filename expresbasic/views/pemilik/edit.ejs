@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit pemilik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   <div class="d-flex justify-content-center mt-4 mb-4">
+        <div class="container py-4 bg-light p-4 rounded">
+            <h1>Edit pemilik</h1>
+            <form action="/pemilik/update/<%= pemilik.id_pemilik %>" method="POST">
+                <input type="hidden" name="id_pemilik" value="<%= pemilik.id_pemilik %>">
+                
+                <!-- Input untuk nama produk -->
+                <div class="mb-3">
+                    <label for="nama_pemilik">Nama</label>
+                    <input type="text" name="nama_pemilik" id="nama_pemilik" class="form-control" value="<%= pemilik.nama_pemilik %>">
+                </div>
+            
+                <!-- Input untuk harga produk -->
+                <div class="mb-3">
+                    <label for="alamat">alamat</label>
+                    <input type="text" name="alamat" id="alamat" class="form-control" value="<%= pemilik.alamat %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="no_hp">no hp</label>
+                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="<%= pemilik.no_hp %>">
+                </div>
+            
+                <!-- Tombol untuk menyimpan perubahan -->
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

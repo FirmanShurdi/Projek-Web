@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index pemilik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+    }
+    .table-dark th {
+        background-color: #343a40;
+        color: white; /* Warna teks diubah menjadi putih agar terlihat jelas */
+    }
+</style>
+<div class="container">
+    <% if (messages.success) { %>
+        <div class="alert alert-info" role="alert">
+            <%= messages.success %>
+        </div>
+    <% } %>
+    
+    <div class="row mb-3">
+        <div class="col">
+            <a href="/pemilik/create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Tambah pemilik
+            </a>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle">
+              <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nama pemilik</th>
+      <th scope="col">alamat</th>
+      <th scope="col">no_hp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i = 0; i < data.length; i++) { %>
+    <tr>
+      <th scope="row"><%= (i+1) %></th>
+      <td><%= data[i].nama_pemilik %></td>
+      <td><%= data[i].alamat %></td>
+      <td><%= data[i].no_hp %></td>
+      <td>
+        <a href="/pemilik/edit/<%= data[i].id_pemilik %>">Edit</a>
+        <a href="/pemilik/delete/<%= data[i].id_pemilik %>">Hapus</a>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+</body>
+</html>
